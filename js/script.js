@@ -4,74 +4,30 @@ var replaceable = true;
 //emulate mouse press events via keyboard keypress
 $("html").keydown(function(event)
 {
-	var isShift = event.shiftKey;				//determine if shift key is pressed or not
-
-	// console.log(event.which);					//print the event stroke on console
+	var pressedKey = event.key;
 
 	//determine the key pressed and emulate the mouse click event
-	switch(event.which)
+	switch(pressedKey)
 	{
-		case 48:
-				if(isShift == false)
-					document.getElementById("t9-zero").click();
-				break;
-
-		case 49:
-				if(isShift == false)
-					document.getElementById("t9-one").click();
-				break;
-
-		case 50:
-				if(isShift == false)
-					document.getElementById("t9-two").click();
-				break;
-
-		case 51:
-				if(isShift == false)
-					document.getElementById("t9-three").click();
-				else
-					document.getElementById("t9-hash").click();
-				break;
-
-		case 52:
-				if(isShift == false)
-					document.getElementById("t9-four").click();
-				break;
-
-		case 53:
-				if(isShift == false)
-					document.getElementById("t9-five").click();
-				break;
-
-		case 54:
-				if(isShift == false)
-					document.getElementById("t9-six").click();
-				break;
-
-		case 55:
-				if(isShift == false)
-					document.getElementById("t9-seven").click();
-				break;
-
-		case 56:
-				if(isShift == false)
-					document.getElementById("t9-eight").click();
-				else
-					document.getElementById("t9-ast").click();
-				break;
-
-		case 57:
-				if(isShift == false)
-					document.getElementById("t9-nine").click();
-				break;
-
-		case 8: document.getElementById("t9-hash").click();
+		case "0": document.getElementById("t9-zero").click(); break;
+		case "1": document.getElementById("t9-one").click(); break;
+		case "2": document.getElementById("t9-two").click(); break;
+		case "3": document.getElementById("t9-three").click(); break;
+		case "4": document.getElementById("t9-four").click(); break;
+		case "5": document.getElementById("t9-five").click(); break;
+		case "6": document.getElementById("t9-six").click(); break;
+		case "7": document.getElementById("t9-seven").click(); break;
+		case "8": document.getElementById("t9-eight").click(); break;
+		case "9": document.getElementById("t9-nine").click(); break;
+		case "#": document.getElementById("t9-hash").click(); break;
+		case "Backspace": document.getElementById("t9-hash").click(); break;
+		case "*": document.getElementById("t9-ast").click(); break;
+		case "Delete": document.getElementById("t9-ast").click(); break;
 	}
 })
 
 
-
-
+//to add or not to add
 $(".t9-button").click(function()
 {
 	// console.log(event.which);
@@ -92,13 +48,12 @@ $(".t9-button").click(function()
 	//reset lastTime value
 	lastTime = thisTime;
 
-
 	var newText = type($(this).attr("data-value"));
 	$("#t9-field").val(newText);
 })
 
 
-
+//actual typing logic
 function type(x)
 {
 	var text = $("#t9-field").val();
