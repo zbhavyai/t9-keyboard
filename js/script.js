@@ -5,25 +5,8 @@ var replaceable = true;
 $("html").keydown(function(event)
 {
 	var isShift = event.shiftKey;				//determine if shift key is pressed or not
-	var thisTime = event.timeStamp;				//determine the event timestamp
 
-	console.log(event.which);					//print the event stroke on console
-
-
-	//determine whether to replace the last entered character or not
-	if((thisTime - lastTime) > 1000)
-	{
-		replaceable = false;
-	}
-
-	else
-	{
-		replaceable = true;
-	}
-
-	//reset lastTime value
-	lastTime = thisTime;
-
+	// console.log(event.which);					//print the event stroke on console
 
 	//determine the key pressed and emulate the mouse click event
 	switch(event.which)
@@ -91,6 +74,25 @@ $("html").keydown(function(event)
 
 $(".t9-button").click(function()
 {
+	// console.log(event.which);
+	var thisTime = event.timeStamp;				//determine the event timestamp
+
+
+	//determine whether to replace the last entered character or not
+	if((thisTime - lastTime) > 1000)
+	{
+		replaceable = false;
+	}
+
+	else
+	{
+		replaceable = true;
+	}
+
+	//reset lastTime value
+	lastTime = thisTime;
+
+
 	var newText = type($(this).attr("data-value"));
 	$("#t9-field").val(newText);
 })
@@ -100,7 +102,7 @@ $(".t9-button").click(function()
 function type(x)
 {
 	var text = $("#t9-field").val();
-	console.log(replaceable);
+	// console.log(replaceable);
 	var length = text.length - 1;
 	//console.log(text[length]);
 
