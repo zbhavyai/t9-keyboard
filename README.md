@@ -1,6 +1,8 @@
 ## T9 Keyboard
 A simple web page emulating the famed T9 keyboard
 
+See it live at [zbhavyai.github.io/showcase/t9-keyboard/](https://zbhavyai.github.io/showcase/t9-keyboard/)
+
 
 ### Features
 + Typos can be deleted using BackSpace or clicking # button multiple times
